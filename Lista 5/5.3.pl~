@@ -1,0 +1,30 @@
+in(f(X,_,_),X).
+in(f(X,_),X).
+in(f(X),X).
+%parent, sons
+next(f(X,Y,_),X,Y).
+next(f(_,X,Y),X,Y).
+next(f(X,Y),X,Y).
+
+prev(f(Y,X,_),X,Y).
+prev(f(_,Y,X),X,Y).
+prev(f(Y,X),X,Y).
+browse(X):-browse(X,[]).
+browse(X,L):-
+	write(X),nl,write('command  : '),
+	read(Y),
+	(
+	    (
+	        Y = i, in(X,N), browse(N,X)
+	    );
+	    (
+	        Y = o, !, false
+	    );
+	    (
+		Y = n, next(L,X,N),! ,browse(N,L)
+	    );
+	    (
+		Y = p, prev(L,X,N),! ,browse(N,L)
+	    );
+	    browse(X,L)
+	).

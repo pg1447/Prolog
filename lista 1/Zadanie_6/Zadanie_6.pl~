@@ -1,0 +1,5 @@
+prime(X,Y,Z) :- between(X,Y,Z), isprime(Z),Z>1.
+
+isprime(X):- \+ (Z is round(sqrt(X)) ,
+		(between(2,Z,Y),
+                 0 is (X mod Y))).

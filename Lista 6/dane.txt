@@ -1,0 +1,8 @@
+read N;
+SUM := 0;
+if (N>10 and N<100) or SUM=1 then
+write 10;
+else
+write  (((30/20)+10)*2)+(3+3+3)/3;
+fi;
+write SUM;
